@@ -48,14 +48,19 @@ export const renderStatus = (statusDiv, statusInfoObj) => {
   div.append(h2, p);
 };
 
-export const renderUsers = (userUI, users) => {
-  const li = document.createElement('li');
-  li.setAttribute('class', 'user-card');
-  const button = document.createElement('button');
-  button.setAttribute('data-user-id', `${users.id}`);
+export const renderUsers = (userUl, users) => {
+  userUl.innerHTML = ``;
 
-  userUI.append(li);
-  li.append(button);
+  users.forEach((user) => {
+    const li = document.createElement('li');
+    li.setAttribute('class', 'user-card');
+    const button = document.createElement('button');
+    button.setAttribute('data-user-id', user.id);
+    button.textContent = `Load ${user.username}'s posts`;
+
+    userUl.append(li);
+    li.append(button);
+  });
 };
 
 export const renderPosts = () => {};

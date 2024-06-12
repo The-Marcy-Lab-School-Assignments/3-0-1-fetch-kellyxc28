@@ -20,6 +20,14 @@ export const getUsers = () => {
     });
 };
 
-export const getUserPosts = () => {};
+export const getUserPosts = (userId, maxNumPosts = 3) => {
+  return fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      return data.slice(0, 3);
+    });
+};
 
 export const createNewUser = () => {};

@@ -3,9 +3,9 @@ import {
   checkResponseStatus,
   getUserPosts,
   createNewUser,
-  getUsers
+  getUsers,
 } from './fetch-functions.js';
-import app from './app'
+import app from './app';
 
 const appDiv = document.querySelector('#app');
 app(appDiv);

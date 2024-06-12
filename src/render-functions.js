@@ -48,7 +48,15 @@ export const renderStatus = (statusDiv, statusInfoObj) => {
   div.append(h2, p);
 };
 
-export const renderUsers = () => {};
+export const renderUsers = (userUI, users) => {
+  const li = document.createElement('li');
+  li.setAttribute('class', 'user-card');
+  const button = document.createElement('button');
+  button.setAttribute('data-user-id', `${users.id}`);
+
+  userUI.append(li);
+  li.append(button);
+};
 
 export const renderPosts = () => {};
 

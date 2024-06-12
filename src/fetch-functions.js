@@ -10,7 +10,15 @@ export const checkResponseStatus = () => {
   });
 };
 
-export const getUsers = () => {};
+export const getUsers = () => {
+  return fetch(userUrl)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    });
+};
 
 export const getUserPosts = () => {};
 

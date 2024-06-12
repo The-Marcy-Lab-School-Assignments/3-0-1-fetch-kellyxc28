@@ -26,8 +26,8 @@ export const getUserPosts = (userId, maxNumPosts = 3) => {
       return response.json();
     })
     .then((data) => {
-      return data.slice(0, 3);
+      return data.slice(0, maxNumPosts);
     });
 };
 
-export const createNewUser = () => {};
+export const createNewUser = (username, email) => {};

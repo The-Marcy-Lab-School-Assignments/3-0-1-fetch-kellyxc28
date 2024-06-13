@@ -28,4 +28,19 @@ export default function app(appDiv) {
       getUserPosts(userId).then((posts) => renderPosts(postsUl, posts));
     }
   });
+
+  newUserForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const formInfo = new FormData(event.target);
+    const newUserInfo = {
+      username: formInfo.username,
+      email: formInfo.email,
+    };
+
+    createNewUser(newUserInfo).then((newUser) => {
+      renderNewUser(newUserDiv, newUser);
+      newUserForm.reset();
+    });
+  });
 }

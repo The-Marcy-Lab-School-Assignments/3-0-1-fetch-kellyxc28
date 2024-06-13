@@ -32,10 +32,10 @@ export default function app(appDiv) {
   newUserForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const formInfo = new FormData(event.target);
+    const formInfo = new FormData(newUserForm);
     const newUserInfo = {
-      username: formInfo.username,
-      email: formInfo.email,
+      username: formInfo.get('username'),
+      email: formInfo.get('email'),
     };
 
     createNewUser(newUserInfo).then((newUser) => {

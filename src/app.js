@@ -16,10 +16,16 @@ export default function app(appDiv) {
   const { statusDiv, usersUl, postsUl, newUserForm, newUserDiv } =
     setupPageBasics(appDiv);
 
-  checkResponseStatus()
-    .then((statusInfoObj) => {
-      renderStatus(statusDiv, statusInfoObj);
-    })
-    .then(() => getUsers())
-    .then((users) => renderUsers(usersUl, users));
+  checkResponseStatus().then((statusInfoObj) => {
+    renderStatus(statusDiv, statusInfoObj);
+  });
+
+  getUsers().then((users) => renderUsers(usersUl, users));
+
+  usersUl.addEventListener('click', (event) => {
+    if (event.target.tagName === 'BUTTON') {
+      let userId = event.target.getAttribute('data-user-id');
+      getUserPosts(userId).then((posts) => renderPosts(postsUl, posts));
+    }
+  });
 }

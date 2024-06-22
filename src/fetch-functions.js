@@ -1,5 +1,5 @@
 const userUrl = 'https://jsonplaceholder.typicode.com/users';
-
+/** FEEDBACK: Great job! Ensure to get into the habit of building out a catch block for any fetch call! */
 export const checkResponseStatus = () => {
   return fetch(userUrl).then((response) => {
     return {

@@ -33,6 +33,7 @@ export default function app(appDiv) {
     event.preventDefault();
 
     const formInfo = new FormData(event.target);
+    /** FEEDBACK: In your object, you are not correctly accessing the username and email! Console.log their values to see what you are actually sending! */
     const newUserInfo = {
       username: formInfo.username,
       email: formInfo.email,

@@ -57,7 +57,7 @@ export const renderUsers = (userUl, users) => {
     const button = document.createElement('button');
     button.setAttribute('data-user-id', user.id);
     button.textContent = `Load ${user.username}'s posts`;
-
+    /** FEEDBACK: Not really a big deal but typically when appending you should go from innermost element to outer not the other way around! */
     userUl.append(li);
     li.append(button);
   });

@@ -32,11 +32,11 @@ export default function app(appDiv) {
   newUserForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const formInfo = new FormData(event.target);
-    /** FEEDBACK: In your object, you are not correctly accessing the username and email! Console.log their values to see what you are actually sending! */
+    const formInfo = new FormData(newUserForm);
+    /** FEEDBACK: Great job! You now have all test cases passing! */
     const newUserInfo = {
-      username: formInfo.username,
-      email: formInfo.email,
+      username: formInfo.get('username'),
+      email: formInfo.get('email'),
     };
 
     createNewUser(newUserInfo).then((newUser) => {
